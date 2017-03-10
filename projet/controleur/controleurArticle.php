@@ -12,9 +12,5 @@ if (isset($_SESSION['idArticle'])) {
 $id = $_SESSION['idArticle'];
 $commentaires = $CommentaireManager->get($id);
 $article = $NewsManager->get($id);
-foreach ($commentaires as $unCom) {
-$id = $unCom->id(); 
-$reponses = $CommentaireManager->getReponses($id); }
 }
-
 require '../vues/article.php'; 

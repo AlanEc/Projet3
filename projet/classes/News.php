@@ -3,7 +3,7 @@ class News {
     private $_id,
             $_auteur,
             $_titre,
-            $_cont,
+            $_contenu,
             $_dateModif,
             $_dateAjout;
 
@@ -22,7 +22,7 @@ public function __construct(array $donnees) {
   }
     
  public function resume() {
-    $resume = substr($this->_cont, 0, 700);
+    $resume = substr($this->_contenu, 0, 700);
     return $resume;
   }
     
@@ -38,8 +38,8 @@ public function titre() {
     return $this->_titre;
   }
     
-public function cont() {
-    return $this->_cont;
+public function contenu() {
+    return $this->_contenu;
   }
 
 public function dateModif() {
@@ -70,9 +70,9 @@ public function setTitre($titre) {
     }
   } 
   
-public function setCont($cont) {
-    if (is_string($cont)) {
-      $this->_cont = $cont;
+public function setContenu($contenu) {
+    if (is_string($contenu)) {
+      $this->_contenu = $contenu;
     }
   } 
   
@@ -81,6 +81,6 @@ public function setDateAjout($time) {
   }
 
 public function setDateModif($time1) {
-    $this->_dateModif = (int) $time1;
+    $this->_dateModif = $time1;
   }  
 }

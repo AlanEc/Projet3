@@ -14,10 +14,10 @@
                  <a class="navbar-brand" href="#">Mon Blog</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="accueil.php">Accueil</a></li>
+                    <li class="active"><a href="controleurAccueil.php">Accueil</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> Administration</a></li>
+                    <li><a href="controleurConnexion.php"><span class="glyphicon glyphicon-log-in"></span> Administration</a></li>
                 </ul> 
             </div>
         </nav>

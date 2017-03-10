@@ -1,16 +1,3 @@
-<?php 
-require '../bootstrap.php'; 
-$manager = new NewsManager($db);
-
-if (!isset($_SESSION['id'])) {
-    header('Location: connexion.php');
-}
-
-if (isset($_GET['modifier'])) {
-  $news = $manager->getUnique($_GET['modifier']);
-}
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +10,8 @@ if (isset($_GET['modifier'])) {
   
     <body>
         <?php include('header.php'); ?>
-        <form action="../verif/verif.php<?php if (isset($news)) { ?> ?id= <?php echo $news->id(); } ?>" method="post">
-            <div class="form-group">
+        <form action="../controleur/verif/actionFormulaireArticle.php<?php if (isset($news)) { ?> ?id= <?php echo $news->id(); } ?>" method="post">
+            <div class="form-group">           
                 <label for="auteur" name="auteur">Auteur</label>
                 <input type="text" class="form-control" id="auteur" name="auteur" value="<?php if (isset($news)) echo $news->auteur(); ?>" placeholder="Auteur">
             </div>
@@ -34,7 +21,7 @@ if (isset($_GET['modifier'])) {
             </div>
             <div class="form-group">
                 <label for="text">Texte</label>
-                <textarea  class="tinymce" id="exampleTextarea" name="cont" rows="3"><?php if (isset($news)) echo $news->cont(); ?></textarea>
+                <textarea  class="tinymce" id="exampleTextarea" name="contenu" rows="3"><?php if (isset($news)) echo $news->contenu(); ?></textarea>
             </div>
            
             <input value="Ajouter" type="submit"  class="btn btn-primary" name="Ajouter">
@@ -51,14 +38,13 @@ if (isset($_GET['modifier'])) {
                             <th>Action</th>
                         </tr>
                     </thead>      
-                    <?php $articles = $manager->getList(); 
-                    foreach ($articles as $unArticle) { ?>
+                    <?php foreach ($articles as $unArticle) { ?>
                     <tr>
                         <td><?php  echo  htmlspecialchars($unArticle->auteur()); ?></td>
                         <td><?php  echo  htmlspecialchars($unArticle->titre()); ?></td>
                         <td><?php  echo  htmlspecialchars($unArticle->dateAjout()); ?></td>
                         <td><?php  echo  htmlspecialchars($unArticle->dateModif()); ?></td>
-                        <td><a href="?modifier=<?php echo  $unArticle->id() ?> ">Modifier</a> | <a href="../verif/supprimer.php?id=<?php echo $unArticle->id() ?>">Supprimer</a></td>
+                        <td><a href="../controleur/controleurAdministration.php?idArticle=<?php echo  $unArticle->id() ?> ">Modifier</a> | <a href="../controleur/verif/supprimerArticle.php?id=<?php echo $unArticle->id() ?>">Supprimer</a></td>
                     </tr><?php } ?>
                 </tbody>
             </table>
@@ -70,11 +56,10 @@ if (isset($_GET['modifier'])) {
                             <th>Action</th>
                         </tr>
                     </thead>      
-                    <?php $comment = $manager->getSignalerComment(); 
-                    foreach ($comment as $unComment) { ?>
+                    <?php foreach ($commentSignaler as $unComment) { ?>
                     <tr>
-                        <td><?php  echo htmlspecialchars($unComment->contC()); ?></td>
-                        <td><a href="../verif/supprimer.php?idc=<?php echo $unComment->id() ?>">Supprimer</a></td>
+                        <td><?php  echo htmlspecialchars($unComment->contenu()); ?></td>
+                        <td><a href="../controleur/verif/supprimerCommentaire.php?idCommentaire=<?php echo $unComment->id() ?>">Supprimer</a></td>
                     </tr><?php } ?>
                 </tbody>
             </table>
@@ -86,11 +71,10 @@ if (isset($_GET['modifier'])) {
                             <th>Action</th>
                         </tr>
                     </thead>      
-                    <?php $comment = $manager->getListComment(); 
-                    foreach ($comment as $unComment) { ?>
+                    <?php foreach ($comment as $unComment) { ?>
                     <tr>
-                        <td><?php  echo htmlspecialchars($unComment->contC()); ?></td>
-                        <td><a href="../verif/supprimer.php?idc=<?php echo $unComment->id() ?>">Supprimer</a></td>
+                        <td><?php  echo htmlspecialchars($unComment->contenu()); ?></td>
+                        <td><a href="../controleur/verif/supprimerCommentaire.php?idCommentaire=<?php echo $unComment->id() ?>">Supprimer</a></td>
                     </tr><?php } ?>
                 </tbody>
             </table>

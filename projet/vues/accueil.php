@@ -1,9 +1,3 @@
-<?php 
-
-require '../bootstrap.php'; 
- $manager = new NewsManager($db);
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,14 +35,13 @@ require '../bootstrap.php';
                 <h1>Liste des 5 dernières news</h1>
             </div>
             <div id="liste">
-                   <?php $articles = $manager->getList(); 
-                   foreach ($articles as $unArticle) { ?>
+                   <?php foreach ($articles as $unArticle) { ?>
                 <div class="container">
                     <div class="span8">
                         <h2><?php  echo  htmlspecialchars($unArticle->titre()) ?> </h2>
                         <p><?php echo $unArticle->resume() ?>...</p>
                     <div>
-                        <div class="more label"><a href="article.php?idb=<?php echo $unArticle->id() ?>">Lire</a></div> 
+                        <div class="more label"><a href="controleurArticle.php?idArticle=<?php echo $unArticle->id() ?>">Lire</a></div> 
                     </div> 
                          <div class="clear"></div>
                         <hr>  

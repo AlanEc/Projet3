@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-
-if(isset($_COOKIE["pseudo"])) {
-    header('Location: administration.php');
-} 
-
-if(isset($_SESSION["id"])) {
-    header('Location: administration.php');
-} 
-?> 
-
 <html>    
 <head>
     <link rel="stylesheet" href="styleCSS.css" />
@@ -25,7 +13,7 @@ if(isset($_SESSION["id"])) {
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <h1 class="text-center login-title">Connectez vous à l'administration</h1>
                     <div class="account-wall">
-                        <form class="form-signin" action="../verif/verifMotpasse.php" method="post">
+                        <form class="form-signin" action="../controleur/verif/verifMotpasse.php" method="post">
                         <input type="text" class="form-control" placeholder="Pseudo" name="pseudo" required autofocus>
                         <input type="password" class="form-control" placeholder="Password" name="pass" required>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
