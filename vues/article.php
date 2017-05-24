@@ -1,7 +1,8 @@
-    <?php include('doctype.html'); ?> 
-    <body>
-        <?php include('menu.php'); ?>
-        <div id="bloc-page">  
+<?php include('doctype.html'); ?> 
+<?php include('menu.php'); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
             <div class="jumbotron" id="jumbotronArticle">
                 <p>Par <?php  echo ($article->auteur()), ' le ',  $article->dateAjout() ;  ?></p>
                 <h2><?php  echo htmlspecialchars($article->titre());  ?></h2>
@@ -21,6 +22,10 @@
                 <strong>Merci!</strong> Vous venez d'ajouer un commentaire.
             </div>
             <?php } ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             <form id="comment" action="../controleur/verif/ajouterCommentaire.php?idArticle=<?php echo $id ?>" method="post">
                 <div class="form-group">
                     <label for="auteur" name="auteur">Auteur</label>
@@ -31,36 +36,33 @@
                     <textarea class="form-control" id="Textarea" name="contenu" value=""  rows="3" required></textarea>
                 </div>
                 <input value="Commenter" type="submit"  class="btn btn-primary" name="ajouterCommentaire">
-            </form>    
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8">
-                  <h2 class="page-header">Commentaires</h2>
-                    <section class="comment-list">
-                        <?php foreach ($commentaires as $unCommentaire) { ?>
-                        <article class="niveau">
-                         <?php include('commentaire.php'); ?>
-                        </article>
-                         <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
-                        <article class="niveau1">
-                          <?php include('commentaire.php'); ?> 
-                        </article>
-                        <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
-                        <article class="niveau2">
-                          <?php include('commentaire.php'); ?>
-                        </article>
-                        <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
-                        <article class="niveau3">
-                          <?php include('commentaire.php'); ?>
-                        </article>
-                        <?php } } } }?>
-                   </div>
-                    </section>
-                  </div>
-                </div>
-            </div>
-            <?php include('footer.php'); ?>
+            </form>  
         </div>
-        <script src="../js/reponse.js"></script>
-    </body>
-</html>
+    </div>  
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">Commentaires</h2>
+            <section class="comment-list">
+                <?php foreach ($commentaires as $unCommentaire) { ?>
+                <article class="niveau">
+                 <?php include('commentaire.php'); ?>
+                </article>
+                 <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
+                <article class="niveau1">
+                  <?php include('commentaire.php'); ?> 
+                </article>
+                <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
+                <article class="niveau2">
+                  <?php include('commentaire.php'); ?>
+                </article>
+                <?php foreach ($unCommentaire->reponses() as $unCommentaire) { ?>
+                <article class="niveau3">
+                  <?php include('commentaire.php'); ?>
+                </article>
+                <?php } } } }?>
+            </section>
+        </div>
+    </div>
+</div>
+<?php include('footer.php'); ?>
+<script src="../js/reponse.js"></script>
