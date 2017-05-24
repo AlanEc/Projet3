@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 if (isset($_GET['idArticle'])) {
-  $articleAModifier = $articleManager-> recupererArticle($_GET['idArticle']);
+  $articleAModifier = $articleManager-> recupererArticleParID($_GET['idArticle']);
 }
 
 if(isset($_GET['supprime']) AND $_GET['supprime'] == "ok") {
