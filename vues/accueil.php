@@ -27,7 +27,7 @@
             <h1>Billet simple pour l'Alaska</h1>
         </div>
     </div>
-        <div id="containerAccueil" class="container">
+    <div id="containerAccueil" class="container">
     <div id="liste">
 
         <?php foreach ($articles as $unArticle) { ?>
@@ -43,10 +43,21 @@
                 <div class="clear">
                 </div> 
             </div>
-            </div></div>
             <hr> 
+            </div>
+            
         </div> 
         <?php } ?> 
+    </div>
+    <ul class="pagination">
+        <?php for($i = 1; $i <= $pagesTotales; $i++) {
+            if ($i == $pageCourante) { ?>
+                <li class="active"> <?php echo '<a>'.$i. '</a> '; ?> </li> <?php
+        }   else { ?> 
+                <li> <?php echo '<a href="controleurAccueil.php?page=' . $i . '">'.$i. '</a> '; ?> </li> <?php
+            }
+        } ?>
+    </ul>
     </div>
     <?php include('footer.php'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
