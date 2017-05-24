@@ -1,0 +1,182 @@
+/*Accueil*/
+#titre_principal {
+  margin-top: 50px;
+  text-align: center;
+  background-color: #6B0328;
+  color: white;
+  height: 110px;
+  padding-top: 8px;
+}
+
+#carouselAccueil {
+	padding:0px 0px 0px 0px;
+	box-shadow: 0px 8px 12px #6c6969;
+}
+
+.carousel-inner {
+    height: 500px;
+}
+
+/*commentaires*/
+.niveau1 {
+  margin-left: 60px;
+}
+
+.niveau2 {
+  margin-left: 120px;
+}
+
+.niveau3 {
+  margin-left: 180px;
+}
+
+.niveau3 button {
+  display: none;
+}
+
+/*footer*/ 
+footer {
+  min-height: 300px;
+  background-color: #172033;
+}
+
+#footer {
+	margin-top: 50px;
+	padding-top: 115px;
+}
+
+footer .glyphicon {
+  color: #4e74ff;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+
+.titreFooter {
+  line-height: 1.1em;
+  font-size: 25px;
+  color: white;
+}
+
+.contact h4 {
+  font-size: 20px;
+  color: #4e74ff;
+}
+
+.contact p {
+  font-size: 17px;
+}
+
+.titrePartie2 {
+  color: #4e74ff;
+}
+
+.contact {
+  text-align: center;
+  border-left: 1px solid #4e74ff;
+}
+
+/*Page A propos*/
+#Projet {
+  padding: 50px 100px 50px 100px;
+  margin-bottom: 80px;
+  background-color: #6B0328;
+  color: white;
+}
+
+#presentation {
+	margin-bottom: 80px;
+}
+
+#presentation h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+/*Jumbotron*/
+.jumbotron {
+  border-radius: 6px;
+}
+
+.jumbotron p {
+  font-size: 15px !important;
+}
+
+/*Tableau*/
+#tableaux {
+	margin-top: 55px;
+}
+
+/*Container*/ 
+.container {
+	margin-top: 135px;
+	padding-bottom: 0px;
+}
+
+#containerAccueil {
+	margin-top: 50px;
+}
+
+/*Menu de Navigation*/
+.logo img {
+	height: 50px;
+	padding-left: 100px;
+	padding-bottom: 0px;
+}
+
+.active.accueil a {
+  border-left: 1px solid #1B9AC4;
+  background-color: transparent !important;
+}
+
+.lienNav a {
+  border-left: 1px solid #1B9AC4 ;
+  background-color: transparent ;
+}
+
+#navigationConnecte {
+   position: fixed ;
+  top:0; left:0 ; right:0 ;
+  z-index: 1060 ;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  height: 80px;
+}
+
+#navigationDeconnecte {
+	position: fixed ;
+  top:0; left:0 ; right:0 ;
+  z-index: 1060 ;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  height: 80px;
+}
+
+@media all and (max-width: 767px) {
+
+#navigationDeconnecte {
+  height: auto;
+}
+
+#carouselAccueil {
+  display: none;
+}
+
+/*Footer*/
+.contact {
+	border: unset;
+	text-align: center;
+}
+
+.titreFooter p {
+  text-align: center;
+}
+
+.tab-content {
+  font-size: 10px;
+}
+
+#Projet {
+  padding: 50px 5px 50px 5px;
+
+}
+}
